@@ -4,7 +4,7 @@ using System;
 
 public class CameraFollow : MonoBehaviour
 {
-    //[HideInInspector]
+    [HideInInspector]
     public GameObject player;
     float playerInsantiateDelay = 2f; // How long to check again if the player object exists after it was not found the first time
     public Vector3 last_position;
