@@ -4,7 +4,7 @@ using System;
 
 public class CameraFollow : MonoBehaviour
 {
-    [HideInInspector]
+    //[HideInInspector]
     public GameObject player;
     float playerInsantiateDelay = 2f; // How long to check again if the player object exists after it was not found the first time
     public Vector3 last_position;
@@ -12,7 +12,7 @@ public class CameraFollow : MonoBehaviour
     void Start()
     {
         // Setup reference to player
-        if (player == null)
+        /*if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player");
         }
@@ -21,7 +21,7 @@ public class CameraFollow : MonoBehaviour
         {
             Debug.LogError("Player not found in CameraFollow. Attempting to find player again in " + playerInsantiateDelay + " seconds");
             StartCoroutine(GetPlayer());
-        }
+        }*/
 
         last_position = gameObject.transform.position;
     }
@@ -44,11 +44,11 @@ public class CameraFollow : MonoBehaviour
         yield return new WaitForSeconds(playerInsantiateDelay);
 
         // Setup reference to player
-        if (player == null)
+        /*if (player == null)
             player = GameObject.FindGameObjectWithTag("Player");
 
         if (player == null)
-            Debug.LogError("Player not found in CameraFollow");
+            Debug.LogError("Player not found in CameraFollow");*/
     }
 
     public IEnumerator PlayCutscene(GameObject target, float time)

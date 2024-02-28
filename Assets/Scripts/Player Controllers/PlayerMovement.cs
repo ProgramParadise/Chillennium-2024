@@ -6,6 +6,7 @@ using UnityEngine;
 public class Player_Movement : MonoBehaviour
 {
     public bool playerCanMove = true;
+    public string axesNumber = "1";
     private Rigidbody2D rb;
     private PlayerStats stats;
     public Animator animator;
@@ -39,8 +40,8 @@ public class Player_Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        moveHorizontal = Input.GetAxis("Horizontal");
-        moveVertical = Input.GetAxis("Vertical");
+        moveHorizontal = Input.GetAxis("Horizontal" + axesNumber);
+        moveVertical = Input.GetAxis("Vertical" + axesNumber);
 
         rb.velocity = new Vector2(moveHorizontal * stats.speed, moveVertical * stats.speed);
         if (rb.velocity.magnitude > stats.speed)
