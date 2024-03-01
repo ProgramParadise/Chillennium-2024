@@ -4,8 +4,11 @@ using System;
 
 public class CameraFollow : MonoBehaviour
 {
-    [HideInInspector]
     public GameObject player;
+    public bool moveX = true;
+    public bool moveY = true;
+    public float slowX = 1;
+    public float slowY = 1;
     float playerInsantiateDelay = 2f; // How long to check again if the player object exists after it was not found the first time
     public Vector3 last_position;
     public bool playingCutscene = false;
@@ -33,7 +36,16 @@ public class CameraFollow : MonoBehaviour
         {
             Vector3 lookpoint = player.transform.position - last_position;
             Vector2 error = (lookpoint * 20) + player.transform.position - gameObject.transform.position;
-            gameObject.transform.Translate(error.x / 10, error.y / 10, 0);
+            if (moveX && moveY)
+            {
+                gameObject.transform.Translate((error.x / 10) * slowX, (error.y / 10) * slowY, 0);
+            } else if (moveX && !moveY)
+            {
+                gameObject.transform.Translate((error.x / 10) * slowX, 0, 0);
+            } else
+            {
+                gameObject.transform.Translate(0, (error.y / 10) * slowY, 0);
+            }
             last_position = player.transform.position;
         }
     }
