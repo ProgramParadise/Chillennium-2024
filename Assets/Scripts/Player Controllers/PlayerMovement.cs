@@ -33,10 +33,8 @@ public class Player_Movement : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(position, direction, distance, groundLayer);
         if (hit.collider != null)
         {
-            Debug.Log("Grounded");
             return true;
         }
-        Debug.Log("Not Grounded");
         return false;
     }
 
