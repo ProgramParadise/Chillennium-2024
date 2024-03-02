@@ -10,24 +10,37 @@ public class PoleSwinging : MonoBehaviour
     public float Vmax;
     public float Vmin;
     public float Vstep;
-    private bool isTouchingPole;
+    public bool isTouchingPole = false;
     //public Animator animator;
     public float AngularVelocity;
     public float animationSpeed;
     public float newSlowX;
     public float newSlowY;
+    private float theta;
     private float OldSlowX;
     private float OldSlowY;
     private Vector3 point;
     private Vector3 axis;
+    public float VelocityXModifier;
+    public float VelocityYModifier;
+    public float VelocityXMax;
+    public float VelocityYMax;
+    private float dTheta;
 
     void OnCollisionStay2D(Collision2D collision)
     {
+        Debug.Log("Hello World");
         if (collision.gameObject.tag == "pole")
         {
-            isTouchingPole = true;
             pole = collision.gameObject;
             point = pole.transform.localPosition;
+            Camera = GameObject.Find("Main Camera").GetComponent<CameraFollow>();
+            OldSlowX = Camera.slowX;
+            OldSlowY = Camera.slowY;
+            Camera.slowX = newSlowX;
+            Camera.slowY = newSlowY;
+            Debug.Log("CAMERA SHIT:" + Camera.slowX + ", " + Camera.slowY); 
+            isTouchingPole = true;
         }
     }
 
@@ -36,11 +49,6 @@ public class PoleSwinging : MonoBehaviour
         axis = new Vector3(0, 0, 1);
         AngularVelocity = Vmin;
         player = gameObject.GetComponent<Player_Movement>();
-        Camera = GameObject.Find("MainCamera").GetComponent<CameraFollow>();
-        OldSlowX = Camera.slowX;
-        OldSlowY = Camera.slowY;
-        Camera.slowX = newSlowX;
-        Camera.slowY = newSlowY;
     }
 
 
@@ -69,23 +77,36 @@ public class PoleSwinging : MonoBehaviour
 
             player.rb.simulated = false;
             Debug.Log("Touching Pole");
-            float theta = Time.deltaTime * AngularVelocity;
-            transform.RotateAround(point, axis, theta);
+            dTheta = (Time.deltaTime * AngularVelocity);
+            theta += dTheta;
+            if (theta + dTheta > 360)
+            {
+                theta = (theta + dTheta) - 360;
+            }
+            transform.RotateAround(point, axis, dTheta);
             //animator.SetFloat("Speed", animationSpeed);
             if (AngularVelocity < Vmax && Input.GetAxis("Horizontal1") > 0.01)
             {
                 AngularVelocity += Vstep;
             }
-            else if (AngularVelocity > Vmin && Input.GetAxis("Horizontal1") < 0.01)
+            else if (AngularVelocity > Vmin + Vstep && Input.GetAxis("Horizontal1") < 0.01)
             {
                 AngularVelocity -= Vstep;
             }
+            Debug.Log(theta + ", " + Mathf.Cos(theta * (Mathf.PI / 180)));
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Camera.slowX = OldSlowX;
                 Camera.slowY = OldSlowY;
-                float VelocityX = (AngularVelocity) * Mathf.Cos(theta * (Mathf.PI / 180));
-                float VelocityY = (AngularVelocity) * Mathf.Sin(theta * (Mathf.PI / 180));
+
+                Debug.Log("Final: " + theta + ", " + Mathf.Cos(theta * (Mathf.PI / 180)));
+                float VelocityX = (AngularVelocity) * Mathf.Cos(theta * (Mathf.PI / 180)) * VelocityXModifier;
+                if (VelocityX > VelocityXMax) VelocityX = VelocityXMax;
+                if (VelocityX < -1 * VelocityXMax) VelocityX = -1 * VelocityXMax;
+                if ((theta > 90 && theta < 180) || (theta > 270 && theta < 360)) VelocityX *= -1;
+
+                float VelocityY = Mathf.Abs((AngularVelocity) * Mathf.Sin(theta * (Mathf.PI / 180)) * VelocityYModifier);
+                if (VelocityY > VelocityYMax) VelocityY = VelocityYMax;
                 player.rb.simulated = true;
                 Debug.Log(VelocityX + ", " + VelocityY);
                 player.rb.velocity = new Vector2(VelocityX, VelocityY);
