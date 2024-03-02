@@ -21,6 +21,7 @@ public class Player_Movement : MonoBehaviour
     float jumpTime;
     bool jumping;
     bool jumpCancelled;
+    bool hasJumped;
 
     public LayerMask groundLayer;
 
@@ -48,11 +49,11 @@ public class Player_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (moveHorizontal > 0.01 && !gameObject.GetComponent<PoleSwinging>().isTouchingPole)
+        if (moveHorizontal < -0.01 && !gameObject.GetComponent<PoleSwinging>().isTouchingPole)
         {
             gameObject.transform.eulerAngles = new Vector3(0, 180, 0);
         }
-        if (moveHorizontal < -0.01 && !gameObject.GetComponent<PoleSwinging>().isTouchingPole)
+        if (moveHorizontal > 0.01 && !gameObject.GetComponent<PoleSwinging>().isTouchingPole)
         {
             gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
         }
@@ -66,6 +67,8 @@ public class Player_Movement : MonoBehaviour
                 jumping = true;
                 jumpCancelled = false;
                 jumpTime = 0;
+                animator.SetBool("Jump", true);
+                hasJumped = true;
             }
 
             if (jumping)
@@ -74,6 +77,7 @@ public class Player_Movement : MonoBehaviour
                 if (Input.GetKeyUp(userKey))
                 {
                     jumpCancelled = true;
+                    
                 }
 
                 if (jumpTime > buttonTime)
@@ -81,9 +85,14 @@ public class Player_Movement : MonoBehaviour
                     jumping = false;
                 }
             }
-        } 
+            if (hasJumped && IsGrounded())
+            {
+                animator.SetBool("Jump", false);
+            }
+        }
 
         animator.SetFloat("Speed", rb.velocity.magnitude);
+
     }
 
     private void FixedUpdate()

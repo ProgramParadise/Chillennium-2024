@@ -26,6 +26,8 @@ public class PoleSwinging : MonoBehaviour
     public float VelocityXMax;
     public float VelocityYMax;
     private float dTheta;
+    private bool foundStart = false;
+    private bool canUseTheta = true;
 
     void OnCollisionStay2D(Collision2D collision)
     {
@@ -33,13 +35,20 @@ public class PoleSwinging : MonoBehaviour
         if (collision.gameObject.tag == "pole")
         {
             pole = collision.gameObject;
-            point = pole.transform.localPosition;
+            point = pole.transform.position;
             Camera = GameObject.Find("Main Camera").GetComponent<CameraFollow>();
             OldSlowX = Camera.slowX;
             OldSlowY = Camera.slowY;
             Camera.slowX = newSlowX;
             Camera.slowY = newSlowY;
-            Debug.Log("CAMERA SHIT:" + Camera.slowX + ", " + Camera.slowY); 
+            Debug.Log("CAMERA SHIT:" + Camera.slowX + ", " + Camera.slowY);
+            theta = Mathf.Atan(Mathf.Abs(point.x - gameObject.transform.position.x)/Mathf.Abs(point.y - gameObject.transform.position.x)) * (180/Mathf.PI);
+            if (point.x > gameObject.transform.position.x)
+            {
+                theta = 0 - theta;
+            }
+            Debug.Log(theta);
+            player.rb.simulated = false;
             isTouchingPole = true;
         }
     }
@@ -72,19 +81,19 @@ public class PoleSwinging : MonoBehaviour
 
     void Update()
     {
+        /*if (!foundStart)
+        {
+            if (gameObject.transform.position.x > point.x - 0.2 && gameObject.transform.position.x < point.x + 0.2 && gameObject.transform.position.y < point.y)
+            {
+                foundStart = true;
+                canUseTheta = true;
+                theta = 0;
+            }
+        }*/
         if (isTouchingPole)
         {
-
-            player.rb.simulated = false;
-            Debug.Log("Touching Pole");
             dTheta = (Time.deltaTime * AngularVelocity);
-            theta += dTheta;
-            if (theta + dTheta > 360)
-            {
-                theta = (theta + dTheta) - 360;
-            }
             transform.RotateAround(point, axis, dTheta);
-            //animator.SetFloat("Speed", animationSpeed);
             if (AngularVelocity < Vmax && Input.GetAxis("Horizontal1") > 0.01)
             {
                 AngularVelocity += Vstep;
@@ -93,6 +102,20 @@ public class PoleSwinging : MonoBehaviour
             {
                 AngularVelocity -= Vstep;
             }
+        } 
+        if (isTouchingPole && canUseTheta)
+        {
+
+            Debug.Log("Touching Pole");
+            /*dTheta = (Time.deltaTime * AngularVelocity);*/
+            theta += dTheta;
+            if (theta + dTheta > 360)
+            {
+                theta = (theta + dTheta) - 360;
+            }
+            
+            //animator.SetFloat("Speed", animationSpeed);
+            
             Debug.Log(theta + ", " + Mathf.Cos(theta * (Mathf.PI / 180)));
             if (Input.GetKeyDown(KeyCode.Space))
             {
