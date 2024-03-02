@@ -48,11 +48,11 @@ public class Player_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (moveHorizontal > 0.01)
+        if (moveHorizontal > 0.01 && !gameObject.GetComponent<PoleSwinging>().isTouchingPole)
         {
             gameObject.transform.eulerAngles = new Vector3(0, 180, 0);
         }
-        if (moveHorizontal < -0.01)
+        if (moveHorizontal < -0.01 && !gameObject.GetComponent<PoleSwinging>().isTouchingPole)
         {
             gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
         }
@@ -103,19 +103,21 @@ public class Player_Movement : MonoBehaviour
             }
         }
 
-        if (playerCanMoveVertical)
+        if (IsGrounded())
         {
-            rb.velocity = new Vector2(moveHorizontal * stats.speed, moveVertical * stats.speed);
-            if (rb.velocity.magnitude > stats.speed)
+            if (playerCanMoveVertical)
             {
-                rb.velocity = rb.velocity * (stats.speed / rb.velocity.magnitude);
+                rb.velocity = new Vector2(moveHorizontal * stats.speed, moveVertical * stats.speed);
+                if (rb.velocity.magnitude > stats.speed)
+                {
+                    rb.velocity = rb.velocity * (stats.speed / rb.velocity.magnitude);
+                }
+            }
+            else
+            {
+                rb.velocity = new Vector2(moveHorizontal * stats.speed, rb.velocity.y);
             }
         }
-        else
-        {
-            rb.velocity = new Vector2(moveHorizontal * stats.speed, rb.velocity.y);
-        }
-
         
     }
 }
