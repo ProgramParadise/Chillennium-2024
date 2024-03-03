@@ -19,7 +19,7 @@ public class MainMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SceneManager.LoadScene("Level_Layout", LoadSceneMode.Single);
+            SceneManager.LoadScene("Opening Scene", LoadSceneMode.Single);
         }
     }
 }
