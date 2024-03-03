@@ -5,13 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void PlayGame()
-    {
-        SceneManager.LoadSceneAsync(1);
-    }
-
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    void Start()
+    {
+
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene("Level_Layout", LoadSceneMode.Single);
+        }
     }
 }

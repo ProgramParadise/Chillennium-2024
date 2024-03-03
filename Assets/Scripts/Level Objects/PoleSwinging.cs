@@ -28,6 +28,7 @@ public class PoleSwinging : MonoBehaviour
     private float dTheta;
     private bool foundStart = false;
     private bool canUseTheta = true;
+    private float waitTime = 0;
 
     void OnCollisionStay2D(Collision2D collision)
     {
@@ -91,6 +92,14 @@ public class PoleSwinging : MonoBehaviour
                 theta = 0;
             }
         }*/
+        if (waitTime > 0)
+        {
+            waitTime--;
+            if (waitTime == 0)
+            {
+                pole.GetComponent<Collider2D>().isTrigger = false;
+            }
+        }
         if (isTouchingPole)
         {
             dTheta = (Time.deltaTime * AngularVelocity);
@@ -129,14 +138,15 @@ public class PoleSwinging : MonoBehaviour
                 if (VelocityX < -1 * VelocityXMax) VelocityX = -1 * VelocityXMax;
                 if ((theta > 90 && theta < 180) || (theta > 270 && theta < 360)) VelocityX *= -1;
 
-                float VelocityY = ((AngularVelocity) * Mathf.Sin(theta * (Mathf.PI / 180)) * VelocityYModifier);
-                if (VelocityY < -0.5f * VelocityYMax) VelocityY = -0.5f * VelocityYMax;
+                float VelocityY = Mathf.Abs((AngularVelocity) * Mathf.Sin(theta * (Mathf.PI / 180)) * VelocityYModifier);
+                //if (VelocityY < -0.5f * VelocityYMax) VelocityY = -0.5f * VelocityYMax;
                 if (VelocityY > VelocityYMax) VelocityY = VelocityYMax;
                 player.rb.simulated = true;
                 Debug.Log(VelocityX + ", " + VelocityY);
                 player.rb.velocity = new Vector2(VelocityX, VelocityY);
                 isTouchingPole = false;
                 pole.GetComponent<Collider2D>().isTrigger = true;
+                waitTime = 10;
             }
         }
     }
