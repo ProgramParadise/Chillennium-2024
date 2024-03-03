@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Checkpoint : MonoBehaviour
 {
-    private float checkpointPositionX;
+    private float checkpointPositionX = -1000f;
     private float checkpointPositionY;
     private GameObject player;
     private CameraFollow Camera;
@@ -12,6 +13,7 @@ public class Checkpoint : MonoBehaviour
     private bool doTransition = false;
     private float OldSlowX;
     private float OldSlowY;
+    public string loadSceneName;
     private GameObject CameraObj;
     private float fuckCounter = 0;
 
@@ -22,7 +24,8 @@ public class Checkpoint : MonoBehaviour
         Camera.slowX = 0.0f;
         Camera.slowY = 0.0f;
         Debug.Log(Camera.slowX);
-        player.transform.position = new Vector3(checkpointPositionX, checkpointPositionY, 0);
+        if (checkpointPositionX != -1000f) player.transform.position = new Vector3(checkpointPositionX, checkpointPositionY, 0);
+        else SceneManager.LoadScene(loadSceneName, LoadSceneMode.Single);
     }
 
     void OnTriggerExit2D(Collider2D collider)

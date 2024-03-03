@@ -21,7 +21,7 @@ public class Player_Movement : MonoBehaviour
     float jumpTime;
     bool jumping;
     bool jumpCancelled;
-    bool hasJumped;
+    bool hasJumped = false;
 
     public LayerMask groundLayer;
 
@@ -61,13 +61,15 @@ public class Player_Movement : MonoBehaviour
         {
             if (Input.GetKeyDown(userKey) && IsGrounded())
             {
+                animator.SetBool("Jump", true);
                 float jumpForce = Mathf.Sqrt(jumpHeight * -2 * (Physics2D.gravity.y * rb.gravityScale));
                 rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
 
                 jumping = true;
                 jumpCancelled = false;
                 jumpTime = 0;
-                animator.SetBool("Jump", true);
+                
+                Debug.Log("Hello ther");
                 hasJumped = true;
             }
 
@@ -88,12 +90,12 @@ public class Player_Movement : MonoBehaviour
             if (hasJumped && IsGrounded())
             {
                 animator.SetBool("Jump", false);
+                hasJumped = false;
             }
         }
-        Debug.Log("Hello");
-        Debug.Log(rb.velocity.magnitude);
-        animator.SetFloat("Speed", rb.velocity.magnitude);
-        Debug.Log(rb.velocity.magnitude);
+        if (IsGrounded()) animator.SetFloat("Speed", rb.velocity.magnitude);
+        else animator.SetFloat("Speed", -100f);
+
 
     }
 

@@ -22,7 +22,7 @@ public class clock : MonoBehaviour
     void Update()
     {
         targetTime -= Time.deltaTime;
-        Debug.Log("Time:" + targetTime);
+        //Debug.Log("Time:" + targetTime);
         if (targetTime <= 0.0f) { timerEnded(); }
     }
 
@@ -40,7 +40,7 @@ public class clock : MonoBehaviour
         {
             SceneManager.LoadScene(loadSceneName, LoadSceneMode.Single);
         }
-        Debug.Log(textObj.text);
+        //Debug.Log(textObj.text);
         textObj.text = timeOClock;
         hour += 1;
         targetTime = 60.0f;
