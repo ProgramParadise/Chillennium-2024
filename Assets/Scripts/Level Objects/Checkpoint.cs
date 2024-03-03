@@ -52,7 +52,7 @@ public class Checkpoint : MonoBehaviour
             wipeObject.transform.Translate(translateAmount, 0, 0);
         }*/
         Debug.Log(fuckCounter);
-        if (fuckCounter >= 150 && player.GetComponent<PlayerStats>().isDead)
+        if (fuckCounter >= 75 && player.GetComponent<PlayerStats>().isDead)
         {
 
             Camera.slowX = OldSlowX;
