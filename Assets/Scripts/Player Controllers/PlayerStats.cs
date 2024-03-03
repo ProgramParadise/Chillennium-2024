@@ -25,5 +25,9 @@ public class PlayerStats : MonoBehaviour
             isDead = true;
             
         }
+        if (collision.gameObject.tag == "meow")
+        {
+            collision.gameObject.GetComponent<AudioSource>().Play();
+        }
     }
 }
