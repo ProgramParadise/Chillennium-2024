@@ -62851,13 +62851,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3317771248146183523, guid: 163d480fe022e8241b4392c5992c0ab4, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6009601630793359175, guid: 163d480fe022e8241b4392c5992c0ab4, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1088892663}
+    - target: {fileID: 6052990912825851677, guid: 163d480fe022e8241b4392c5992c0ab4, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9049013797839449037, guid: 163d480fe022e8241b4392c5992c0ab4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9139
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 9138945370896814006, guid: 163d480fe022e8241b4392c5992c0ab4, type: 3}
       propertyPath: m_Name

@@ -12,6 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: ac876531e5fc5534f8ebd509765bde87
   - enabled: 1
+    path: Assets/Scenes/Opening Scene.unity
+    guid: 1500eb98e2b34644eb91eff86b8dd72b
+  - enabled: 1
     path: Assets/Scenes/Level_Layout.unity
     guid: 66d478c9654d64d42ac41eecc232c94f
+  - enabled: 1
+    path: Assets/Scenes/Good Ending.unity
+    guid: 3f2fac4e249bbd54cad8e8b2f820ee99
+  - enabled: 1
+    path: Assets/Scenes/Bad Ending.unity
+    guid: c253c88e1e7d29d43aced9c794357355
   m_configObjects: {}
