@@ -263,6 +263,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2531604848186766078, guid: e259f9888cea5534791083df1ce58f8a, type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 0df2ec180a6a0e346beb3095b16a43f1, type: 3}
+    - target: {fileID: 2531604848186766078, guid: e259f9888cea5534791083df1ce58f8a, type: 3}
+      propertyPath: m_ControlledAudioTrackCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2531604848186766078, guid: e259f9888cea5534791083df1ce58f8a, type: 3}
+      propertyPath: m_DirectAudioMutes.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2531604848186766078, guid: e259f9888cea5534791083df1ce58f8a, type: 3}
+      propertyPath: m_DirectAudioVolumes.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2531604848186766078, guid: e259f9888cea5534791083df1ce58f8a, type: 3}
+      propertyPath: m_EnabledAudioTracks.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2531604848186766078, guid: e259f9888cea5534791083df1ce58f8a, type: 3}
+      propertyPath: m_TargetAudioSources.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4110505048083942797, guid: e259f9888cea5534791083df1ce58f8a, type: 3}
       propertyPath: m_Name
       value: CutscenePlayer
