@@ -83,12 +83,12 @@ SpriteRenderer:
   m_SortingLayerID: 403979663
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 02c3ccff3744aec4ea8630a266ec348c, type: 3}
+  m_Sprite: {fileID: 457684481, guid: 8f73e5ed4d0877b478294531bfbb5648, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 16.01, y: 13.91}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -256,9 +256,7 @@ MonoBehaviour:
   userKey: 32
   axesNumber: 1
   rb: {fileID: 8207066841332765963}
-  animatorRun: {fileID: 0}
-  animatorIdle: {fileID: 0}
-  idleSpeed: 0
+  animator: {fileID: 0}
   buttonTime: 0.5
   jumpHeight: 5
   cancelRate: 100
@@ -277,14 +275,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 060aa12409a9b3d46a02c7504315ba44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
-  regenRate: 0.05
   speed: 7.5
-  healthbar: {fileID: 0}
-  healthbarBackground: {fileID: 0}
-  fadeOutWaitTime: 8
-  fadeInTime: 0.1
-  fadeOutTime: 1
+  isDead: 0
 --- !u!114 &6272042962665365873
 MonoBehaviour:
   m_ObjectHideFlags: 0

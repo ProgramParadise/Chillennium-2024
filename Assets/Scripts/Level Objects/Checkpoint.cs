@@ -25,7 +25,7 @@ public class Checkpoint : MonoBehaviour
         player.transform.position = new Vector3(checkpointPositionX, checkpointPositionY, 0);
     }
 
-    void OnTriggerEnter2D(Collider2D collider)
+    void OnTriggerExit2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "Player")
         {
