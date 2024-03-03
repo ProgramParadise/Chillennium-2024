@@ -113,9 +113,9 @@ TextureImporter:
       name: TX_LeafPlatforms_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 128
         y: 128
-        width: 192
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -134,9 +134,9 @@ TextureImporter:
       name: TX_LeafPlatforms_1
       rect:
         serializedVersion: 2
-        x: 0
+        x: 64
         y: 64
-        width: 192
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -155,9 +155,9 @@ TextureImporter:
       name: TX_LeafPlatforms_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 192
+        x: 128
+        y: 64
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -168,6 +168,69 @@ TextureImporter:
       bones: []
       spriteID: ba78b25aedcd5d34494ebeef0f483da2
       internalID: -1100525467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX_LeafPlatforms_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 471fc48f347945845b00346ff06e163c
+      internalID: 2008872953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX_LeafPlatforms_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0a4a2c3b0b83ba4f9615c68c77c5f8e
+      internalID: -680525480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX_LeafPlatforms_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffb037731ebb10640a26df60ef651eb1
+      internalID: 760616124
       vertices: []
       indices: 
       edges: []
@@ -186,6 +249,9 @@ TextureImporter:
       TX_LeafPlatforms_0: 289696111
       TX_LeafPlatforms_1: -205695846
       TX_LeafPlatforms_2: -1100525467
+      TX_LeafPlatforms_3: 2008872953
+      TX_LeafPlatforms_4: -680525480
+      TX_LeafPlatforms_5: 760616124
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
