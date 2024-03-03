@@ -23,6 +23,7 @@ public class PlayerStats : MonoBehaviour
         if (collision.gameObject.tag == "death")
         {
             isDead = true;
+            
         }
     }
 }

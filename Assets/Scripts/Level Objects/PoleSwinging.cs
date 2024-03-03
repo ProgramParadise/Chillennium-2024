@@ -50,6 +50,7 @@ public class PoleSwinging : MonoBehaviour
             Debug.Log(theta);
             player.rb.simulated = false;
             isTouchingPole = true;
+            pole.GetComponent<Collider2D>().isTrigger = false;
         }
     }
 
@@ -135,6 +136,7 @@ public class PoleSwinging : MonoBehaviour
                 Debug.Log(VelocityX + ", " + VelocityY);
                 player.rb.velocity = new Vector2(VelocityX, VelocityY);
                 isTouchingPole = false;
+                pole.GetComponent<Collider2D>().isTrigger = true;
             }
         }
     }
