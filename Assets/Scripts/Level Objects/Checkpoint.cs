@@ -7,7 +7,7 @@ public class Checkpoint : MonoBehaviour
 {
     private float checkpointPositionX = -1000f;
     private float checkpointPositionY;
-    private GameObject player;
+    public GameObject player;
     private CameraFollow Camera;
     private GameObject wipeObject;
     private bool doTransition = false;
@@ -32,7 +32,6 @@ public class Checkpoint : MonoBehaviour
     {
         if (collider.gameObject.tag == "Player")
         {
-            player = collider.gameObject;
             checkpointPositionX = player.transform.position.x;
             checkpointPositionY = player.transform.position.y;
         }
