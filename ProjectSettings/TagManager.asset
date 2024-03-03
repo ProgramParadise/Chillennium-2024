@@ -9,7 +9,6 @@ TagManager:
   - pole
   - checkpoint
   - death
-  - meow
   layers:
   - Default
   - TransparentFX
