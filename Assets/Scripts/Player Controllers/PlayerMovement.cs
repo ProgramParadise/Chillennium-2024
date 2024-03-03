@@ -90,8 +90,10 @@ public class Player_Movement : MonoBehaviour
                 animator.SetBool("Jump", false);
             }
         }
-
+        Debug.Log("Hello");
+        Debug.Log(rb.velocity.magnitude);
         animator.SetFloat("Speed", rb.velocity.magnitude);
+        Debug.Log(rb.velocity.magnitude);
 
     }
 

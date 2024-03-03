@@ -128,7 +128,8 @@ public class PoleSwinging : MonoBehaviour
                 if (VelocityX < -1 * VelocityXMax) VelocityX = -1 * VelocityXMax;
                 if ((theta > 90 && theta < 180) || (theta > 270 && theta < 360)) VelocityX *= -1;
 
-                float VelocityY = Mathf.Abs((AngularVelocity) * Mathf.Sin(theta * (Mathf.PI / 180)) * VelocityYModifier);
+                float VelocityY = ((AngularVelocity) * Mathf.Sin(theta * (Mathf.PI / 180)) * VelocityYModifier);
+                if (VelocityY < -0.5f * VelocityYMax) VelocityY = -0.5f * VelocityYMax;
                 if (VelocityY > VelocityYMax) VelocityY = VelocityYMax;
                 player.rb.simulated = true;
                 Debug.Log(VelocityX + ", " + VelocityY);
