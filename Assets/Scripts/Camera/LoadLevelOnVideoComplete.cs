@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LoadLevelOnVideoComplete : MonoBehaviour
 {
-    public string levelToLoad;
+    public string levelToLoad = "";
     void Start()
     {
         
@@ -16,7 +16,11 @@ public class LoadLevelOnVideoComplete : MonoBehaviour
     {
         if (gameObject.GetComponent<UnityEngine.Video.VideoPlayer>().isPlaying == false)
         {
-            SceneManager.LoadScene(levelToLoad, LoadSceneMode.Single);
+            if (levelToLoad != "")
+            {
+                SceneManager.LoadScene(levelToLoad, LoadSceneMode.Single);
+            }
+            else Application.Quit();
         }
     }
 }
