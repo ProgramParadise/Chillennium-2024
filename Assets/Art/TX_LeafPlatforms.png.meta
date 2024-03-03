@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ae996195e2c724b488864da6b79911ef
+guid: 0ba6df6f87b49854380ca8c86a7b0d39
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,97 +110,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TX_PlatformBalconyTileable_0
+      name: TX_LeafPlatforms_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 192
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da57dbf4d8171824898430bb317a9016
+      internalID: 289696111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX_LeafPlatforms_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 192
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8071fb5b777cff24ca35a2299abe3608
+      internalID: -205695846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX_LeafPlatforms_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
+        width: 192
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 4, y: 22}
-        - {x: -22, y: 22}
-        - {x: -22, y: -10}
-        - {x: -10, y: -22}
-        - {x: 32, y: -22}
-        - {x: 32, y: 7}
-        - {x: 32, y: 22}
-      physicsShape:
-      - - {x: -22, y: 22}
-        - {x: -22, y: -10}
-        - {x: -10, y: -22}
-        - {x: 32, y: -22}
-        - {x: 32, y: 21}
+      outline: []
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5947e6a1c47b274887e77f0ec7573e4
-      internalID: 2061122846
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX_PlatformBalconyTileable_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -7, y: 22}
-        - {x: -32, y: 22}
-        - {x: -32, y: -22}
-        - {x: 32, y: -22}
-        - {x: 32, y: 16}
-        - {x: 32, y: 22}
-      physicsShape:
-      - - {x: -32, y: 21}
-        - {x: -32, y: -22}
-        - {x: 32, y: -22}
-        - {x: 32, y: 21}
-      tessellationDetail: 0
-      bones: []
-      spriteID: ffb49a2703745bb458052a162dd74c72
-      internalID: 620499640
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX_PlatformBalconyTileable_2
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -14, y: 22}
-        - {x: -32, y: 22}
-        - {x: -32, y: -22}
-        - {x: 16, y: -22}
-        - {x: 16, y: 11}
-        - {x: 3, y: 22}
-      physicsShape:
-      - - {x: -32, y: 21}
-        - {x: -32, y: -22}
-        - {x: 16, y: -22}
-        - {x: 16, y: 11}
-        - {x: 3, y: 22}
-      tessellationDetail: 0
-      bones: []
-      spriteID: b2ad389cf5e8d994c9d78c1b9410cafc
-      internalID: -1038216623
+      spriteID: ba78b25aedcd5d34494ebeef0f483da2
+      internalID: -1100525467
       vertices: []
       indices: 
       edges: []
@@ -216,9 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      TX_PlatformBalconyTileable_0: 2061122846
-      TX_PlatformBalconyTileable_1: 620499640
-      TX_PlatformBalconyTileable_2: -1038216623
+      TX_LeafPlatforms_0: 289696111
+      TX_LeafPlatforms_1: -205695846
+      TX_LeafPlatforms_2: -1100525467
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
