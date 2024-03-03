@@ -92,7 +92,7 @@ public class PoleSwinging : MonoBehaviour
                 theta = 0;
             }
         }*/
-        if (waitTime > 0)
+        if (!isTouchingPole && waitTime > 0)
         {
             waitTime--;
             if (waitTime == 0)

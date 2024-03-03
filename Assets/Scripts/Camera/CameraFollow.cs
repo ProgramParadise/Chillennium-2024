@@ -29,6 +29,14 @@ public class CameraFollow : MonoBehaviour
         last_position = gameObject.transform.position;
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
