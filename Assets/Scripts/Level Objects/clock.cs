@@ -9,7 +9,7 @@ public class clock : MonoBehaviour
     public float targetTime = 60.0f;
     private int hour = 1;
     public TMP_Text textObj;
-    public string loadSceneName;
+    public string loadSceneName = "Bad Ending";
     private string timeOClock = "9:00";
     
     //8 minute timer
