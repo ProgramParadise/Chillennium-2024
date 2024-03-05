@@ -19,6 +19,8 @@ public class PoleSwinging : MonoBehaviour
     public float theta;
     private float OldSlowX;
     private float OldSlowY;
+    public float OldSlowXFix;
+    public float OldSlowYFix;
     private Vector3 point;
     private Vector3 axis;
     public float VelocityXModifier;
@@ -37,7 +39,6 @@ public class PoleSwinging : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D collision)
     {
-        Debug.Log("Hello World");
         if (collision.gameObject.tag == "pole")
         {
             if (VelocityX != 0) VelocityX = 0;
@@ -47,6 +48,8 @@ public class PoleSwinging : MonoBehaviour
             point = pole.transform.position;
             player.transform.LookAt(transform.position + axis, pole.transform.position - player.transform.position);
             Camera = GameObject.Find("Main Camera").GetComponent<CameraFollow>();
+            if (Camera.slowX != OldSlowXFix) Camera.slowX = OldSlowXFix;
+            if (Camera.slowY != OldSlowYFix) Camera.slowY = OldSlowYFix;
             OldSlowX = Camera.slowX;
             OldSlowY = Camera.slowY;
             Camera.slowX = newSlowX;
@@ -141,6 +144,7 @@ public class PoleSwinging : MonoBehaviour
         {
             canStart = true;
         }*/
+        Debug.Log(OldSlowX);
         if (shouldUseD)
         {
             if (Input.GetAxis("Horizontal1") > 0.01)

@@ -161,6 +161,8 @@ MonoBehaviour:
   buttonTime: 0.5
   jumpHeight: 5
   cancelRate: 100
+  raycastShiftX: -0.734
+  raycastShiftY: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -234,6 +236,8 @@ MonoBehaviour:
   newSlowX: 0.01
   newSlowY: 0.01
   theta: 0
+  OldSlowXFix: 0.75
+  OldSlowYFix: 0.2
   VelocityXModifier: 10
   VelocityYModifier: 1000
   VelocityXMax: 15
@@ -248,7 +252,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4293673389674894275}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:

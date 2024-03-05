@@ -53,7 +53,6 @@ public class Checkpoint : MonoBehaviour
         {
             wipeObject.transform.Translate(translateAmount, 0, 0);
         }*/
-        Debug.Log(fuckCounter);
         if (fuckCounter >= 75 && player.GetComponent<PlayerStats>().isDead)
         {
 

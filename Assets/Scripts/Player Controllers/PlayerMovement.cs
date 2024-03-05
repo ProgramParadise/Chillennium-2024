@@ -23,19 +23,30 @@ public class Player_Movement : MonoBehaviour
     bool jumpCancelled;
     bool hasJumped = false;
     private float waitTime = 0;
+    public float raycastShiftX;
+    public float raycastShiftY;
 
     public LayerMask groundLayer;
 
     bool IsGrounded()
     {
         Vector2 position = transform.position;
+        Vector2 position2 = new Vector2(transform.position.x + raycastShiftX, transform.position.y + raycastShiftY);
         Vector2 direction = Vector2.down;
         float distance = 1.0f;
 
         RaycastHit2D hit = Physics2D.Raycast(position, direction, distance, groundLayer);
+        RaycastHit2D hit2 = Physics2D.Raycast(position2, direction, distance, groundLayer);
         if (hit.collider != null)
         {
             if (hit.collider.gameObject.tag == "Wall")
+            {
+                return true;
+            }
+        }
+        if (hit2.collider != null)
+        {
+            if (hit2.collider.gameObject.tag == "Wall")
             {
                 return true;
             }
@@ -55,14 +66,11 @@ public class Player_Movement : MonoBehaviour
     {
         if (!animator.GetBool("Jump") && !animator.GetBool("pole") && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || (!animator.GetBool("Jump") && !animator.GetBool("pole")) && Mathf.Abs(Input.GetAxis("Horizontal1")) > 0))
         {
-            Debug.Log("Running");
             animator.SetFloat("runSpeed", (Mathf.Abs(rb.velocity.x) / 7.5f));
             animator.SetFloat("Speed", 1);
-            Debug.Log(animator.GetFloat("Speed"));
         }
         else if (!animator.GetBool("Jump") && !animator.GetBool("pole"))
         {
-            Debug.Log("Not Running");
             animator.SetFloat("Speed", 0);
         }
         if (hasJumped && IsGrounded() && !gameObject.GetComponent<PoleSwinging>().isTouchingPole && waitTime == 0)
