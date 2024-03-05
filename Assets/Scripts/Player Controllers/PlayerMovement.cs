@@ -22,6 +22,7 @@ public class Player_Movement : MonoBehaviour
     bool jumping;
     bool jumpCancelled;
     bool hasJumped = false;
+    private float waitTime = 0;
 
     public LayerMask groundLayer;
 
@@ -34,7 +35,10 @@ public class Player_Movement : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(position, direction, distance, groundLayer);
         if (hit.collider != null)
         {
-            return true;
+            if (hit.collider.gameObject.tag == "Wall")
+            {
+                return true;
+            }
         }
         return false;
     }
@@ -49,6 +53,16 @@ public class Player_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (hasJumped && IsGrounded() && !gameObject.GetComponent<PoleSwinging>().isTouchingPole && waitTime == 0)
+        {
+            Debug.Log("Should end jump anim");
+            animator.SetBool("Jump", false);
+            hasJumped = false;
+        }else if (hasJumped && IsGrounded() && !gameObject.GetComponent<PoleSwinging>().isTouchingPole)
+        {
+            Debug.Log("Wait: " + waitTime);
+            waitTime--;
+        }
         if (moveHorizontal < -0.01 && !gameObject.GetComponent<PoleSwinging>().isTouchingPole)
         {
             gameObject.transform.eulerAngles = new Vector3(0, 180, 0);
@@ -71,6 +85,7 @@ public class Player_Movement : MonoBehaviour
                 
                 Debug.Log("Hello ther");
                 hasJumped = true;
+                waitTime = 10;
             }
 
             if (jumping)
@@ -87,16 +102,17 @@ public class Player_Movement : MonoBehaviour
                     jumping = false;
                 }
             }
-            if (hasJumped && IsGrounded())
-            {
-                animator.SetBool("Jump", false);
-                hasJumped = false;
-            }
         }
-        if (IsGrounded()) animator.SetFloat("Speed", rb.velocity.magnitude);
-        else animator.SetFloat("Speed", -100f);
 
-
+        if (gameObject.GetComponent<PoleSwinging>().isTouchingPole)
+        {
+            animator.SetBool("pole", true);
+        }
+        else
+        {
+            animator.SetBool("pole", false);
+            if (!animator.GetBool("Jump") && !animator.GetBool("pole")) animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+        }
     }
 
     private void FixedUpdate()
