@@ -60,19 +60,18 @@ public class Player_Movement : MonoBehaviour
         stats = gameObject.GetComponent<PlayerStats>();
         if (playerCanJump) playerCanMoveVertical = false;
     }
-
     // Update is called once per frame
     void Update()
     {
         if (!animator.GetBool("Jump") && !animator.GetBool("pole") && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || (!animator.GetBool("Jump") && !animator.GetBool("pole")) && Mathf.Abs(Input.GetAxis("Horizontal1")) > 0))
         {
-<<<<<<< HEAD
+
             animator.SetFloat("runSpeed", (Mathf.Abs(rb.velocity.x) / 7.5f));
             animator.SetFloat("Speed", 1);
         }
-        else if (!animator.GetBool("Jump") && !animator.GetBool("pole"))
+        else if (!animator.GetBool("Jump") && !animator.GetBool("pole") && Mathf.Abs(Input.GetAxis("Horizontal1")) > 0.0001)
         {
-=======
+
             Debug.Log("Running");
             animator.SetFloat("runSpeed", (Mathf.Abs(rb.velocity.x) / 7.5f));
             animator.SetFloat("Speed", 1);
@@ -81,7 +80,6 @@ public class Player_Movement : MonoBehaviour
         else if (!animator.GetBool("Jump") && !animator.GetBool("pole"))
         {
             Debug.Log("Not Running");
->>>>>>> 44210ebb (I think I fixed physics + some changes to poles and animations to feel more fluid)
             animator.SetFloat("Speed", 0);
         }
         if (hasJumped && IsGrounded() && !gameObject.GetComponent<PoleSwinging>().isTouchingPole && waitTime == 0)

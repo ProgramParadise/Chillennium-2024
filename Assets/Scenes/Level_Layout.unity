@@ -141,11 +141,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6177364924068868958, guid: 6af4d0aa571ad7d4ea250512068e32f0, type: 3}
       propertyPath: m_LocalPosition.y
-<<<<<<< HEAD
       value: 5.726
-=======
       value: 5.7
->>>>>>> 44210ebb (I think I fixed physics + some changes to poles and animations to feel more fluid)
       objectReference: {fileID: 0}
     - target: {fileID: 6177364924068868958, guid: 6af4d0aa571ad7d4ea250512068e32f0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -179,8 +176,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< HEAD
-=======
     - target: {fileID: 7869645550188759292, guid: 6af4d0aa571ad7d4ea250512068e32f0, type: 3}
       propertyPath: shouldUseD
       value: 1
@@ -193,7 +188,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
->>>>>>> 44210ebb (I think I fixed physics + some changes to poles and animations to feel more fluid)
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24407,11 +24401,8 @@ Tilemap:
   - m_RefCount: 794
     m_Data: {fileID: 21300000, guid: 04f62e02cf41a64438f1e5997815b3b4, type: 3}
   m_TileMatrixArray:
-<<<<<<< HEAD
   - m_RefCount: 460
-=======
   - m_RefCount: 852
->>>>>>> 44210ebb (I think I fixed physics + some changes to poles and animations to feel more fluid)
     m_Data:
       e00: 1
       e01: 0
@@ -24430,11 +24421,8 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-<<<<<<< HEAD
   - m_RefCount: 460
-=======
   - m_RefCount: 852
->>>>>>> 44210ebb (I think I fixed physics + some changes to poles and animations to feel more fluid)
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   - m_RefCount: 0
     m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}

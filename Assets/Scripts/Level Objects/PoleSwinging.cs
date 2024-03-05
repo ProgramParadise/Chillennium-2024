@@ -191,7 +191,7 @@ public class PoleSwinging : MonoBehaviour
 
             //animator.SetFloat("Speed", animationSpeed);
             VelocityX = Mathf.Abs((1.19f) * (AngularVelocity) * Mathf.Cos(theta * (Mathf.PI / 180)) * VelocityXModifier);
-            if (gameObject.transform.position.y - point.y > 0.86 || (gameObject.transform.position.x < point.x && gameObject.transform.position.y >= point.y - 0.5))
+            if (gameObject.transform.position.y - point.y > 0.9 || (gameObject.transform.position.x < point.x && gameObject.transform.position.y >= point.y - 0.5))
             {
                 VelocityX = -1 * VelocityX;
             }
