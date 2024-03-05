@@ -187,7 +187,7 @@ public class PoleSwinging : MonoBehaviour
 
             //animator.SetFloat("Speed", animationSpeed);
             VelocityX = Mathf.Abs((1.19f) * (AngularVelocity) * Mathf.Cos(theta * (Mathf.PI / 180)) * VelocityXModifier);
-            if (theta < 270 && theta > 160)
+            if (gameObject.transform.position.y - point.y > 0.86 || (gameObject.transform.position.x < point.x && gameObject.transform.position.y >= point.y - 0.5))
             {
                 VelocityX = -1 * VelocityX;
             }
@@ -212,7 +212,7 @@ public class PoleSwinging : MonoBehaviour
                 player.rb.velocity = new Vector2(VelocityX, VelocityY);
                 isTouchingPole = false;
                 pole.GetComponent<Collider2D>().isTrigger = true;
-                waitTime = 60;
+                waitTime = 30;
             }
         }
     }

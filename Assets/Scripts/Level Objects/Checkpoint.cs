@@ -64,7 +64,7 @@ public class Checkpoint : MonoBehaviour
             fuckCounter = 0;
             //wipeObject.SetActive(false);
         }
-        if (player.GetComponent<PlayerStats>().isDead)
+        if (player.GetComponent<PlayerStats>().isDead || Input.GetKeyDown(KeyCode.R))
         {
             //wipeObject.GetComponent<SpriteRenderer>().enabled = true;
             //wipeObject.transform.position = new Vector3(CameraObj.transform.position.x - 100, CameraObj.transform.position.y, -3);

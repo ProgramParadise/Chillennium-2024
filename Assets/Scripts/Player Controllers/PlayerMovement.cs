@@ -53,6 +53,18 @@ public class Player_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!animator.GetBool("Jump") && !animator.GetBool("pole") && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || (!animator.GetBool("Jump") && !animator.GetBool("pole")) && Mathf.Abs(Input.GetAxis("Horizontal1")) > 0))
+        {
+            Debug.Log("Running");
+            animator.SetFloat("runSpeed", (Mathf.Abs(rb.velocity.x) / 7.5f));
+            animator.SetFloat("Speed", 1);
+            Debug.Log(animator.GetFloat("Speed"));
+        }
+        else if (!animator.GetBool("Jump") && !animator.GetBool("pole"))
+        {
+            Debug.Log("Not Running");
+            animator.SetFloat("Speed", 0);
+        }
         if (hasJumped && IsGrounded() && !gameObject.GetComponent<PoleSwinging>().isTouchingPole && waitTime == 0)
         {
             Debug.Log("Should end jump anim");
@@ -111,7 +123,7 @@ public class Player_Movement : MonoBehaviour
         else
         {
             animator.SetBool("pole", false);
-            if (!animator.GetBool("Jump") && !animator.GetBool("pole")) animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+            //if (!animator.GetBool("Jump") && !animator.GetBool("pole")) animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
         }
     }
 

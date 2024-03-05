@@ -225,9 +225,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce6c83bab94ed1e4b89b02d077b54ec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Vmax: 8
+  Vmax: 5
   Vmin: 1
-  Vstep: 0.1
+  Vstep: 0.05
   isTouchingPole: 0
   AngularVelocity: 0
   animationSpeed: 0
@@ -235,11 +235,12 @@ MonoBehaviour:
   newSlowY: 0.01
   theta: 0
   VelocityXModifier: 10
-  VelocityYModifier: 8
+  VelocityYModifier: 1000
   VelocityXMax: 15
   VelocityYMax: 15
   XVelocityAlwaysPositive: 0
   VelocityX: 0
+  shouldUseD: 0
 --- !u!58 &8389067592981748773
 CircleCollider2D:
   m_ObjectHideFlags: 0

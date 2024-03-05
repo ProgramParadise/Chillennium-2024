@@ -177,7 +177,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1508792670996822515}
-  - component: {fileID: 2757213136900910504}
+  - component: {fileID: 2450497192144034728}
   m_Layer: 0
   m_Name: Pole
   m_TagString: pole
@@ -202,8 +202,8 @@ Transform:
   - {fileID: 1907053953258368799}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &2757213136900910504
-CircleCollider2D:
+--- !u!60 &2450497192144034728
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -235,5 +235,31 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.2
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.3937626, y: -0.23257017}
+      - {x: 0.33835125, y: -0.23773575}
+      - {x: -0.13256931, y: 0.23413873}
+      - {x: -0.13162899, y: 0.3731954}
+      - {x: -0.25286674, y: 0.50653505}
+      - {x: -0.39274216, y: 0.5081811}
+      - {x: -0.4966231, y: 0.39676955}
+      - {x: -0.4901461, y: 0.26110685}
+      - {x: -0.3673687, y: 0.13805723}
+      - {x: -0.23403072, y: 0.13833976}
+      - {x: 0.2315054, y: -0.3190627}
+      - {x: 0.23696136, y: -0.39443254}
+      - {x: 0.32601357, y: -0.47872162}
+      - {x: 0.3901062, y: -0.48334122}
+      - {x: 0.49405253, y: -0.3950274}
+      - {x: 0.49290562, y: -0.31845075}
+  m_UseDelaunayMesh: 0
